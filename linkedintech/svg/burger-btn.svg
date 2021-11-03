@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13.6" height="13.605" viewBox="0 0 13.6 13.605">
+  <g id="burger-btn" transform="translate(-220.7 -400.7)">
+    <line id="Линия_1" data-name="Линия 1" x2="12" transform="translate(221.5 401.5)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="1.6"/>
+    <path id="Контур_1" data-name="Контур 1" d="M0,0H12" transform="translate(221.5 407.502)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="1.6"/>
+    <line id="Линия_3" data-name="Линия 3" x2="12" transform="translate(221.5 413.505)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="1.6"/>
+  </g>
+</svg>
