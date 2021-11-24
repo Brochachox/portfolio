@@ -1073,7 +1073,7 @@ ul {
 }
 
 .about-for-products__features-item::before {
-  content: url("svg/check.svg");
+  content: url("../svg/check.svg");
   margin-top: 4px;
   position: absolute;
   left: -30px;

@@ -769,7 +769,7 @@ ul {
         color: #030d15;
         position: relative;
         &::before {
-            content: url("svg/check.svg");
+            content: url("../svg/check.svg");
             margin-top: 4px;
             position: absolute;
             left: -30px;
