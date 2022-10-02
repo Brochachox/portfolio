@@ -254,6 +254,7 @@ ul {
       -ms-flex: 1 0 0px;
           flex: 1 0 0;
   margin: 0px 30px;
+  visibility: hidden;
 }
 
 @media screen and (max-width: 768px) {
@@ -264,6 +265,13 @@ ul {
             flex: 0 1 0;
     margin: 0;
   }
+}
+
+.header__mid-section_active {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
 }
 
 .header__search-box {
@@ -287,6 +295,52 @@ ul {
   border-bottom: 1px solid black;
 }
 
+.header__search-input::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.header__search-input:-ms-input-placeholder {
+  opacity: 0;
+}
+
+.header__search-input::-ms-input-placeholder {
+  opacity: 0;
+}
+
+.header__search-input::placeholder {
+  opacity: 0;
+}
+
+.header__search-input_active::-webkit-input-placeholder {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
+.header__search-input_active:-ms-input-placeholder {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+  transition-delay: 0.4s;
+}
+
+.header__search-input_active::-ms-input-placeholder {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+  transition-delay: 0.4s;
+}
+
+.header__search-input_active::placeholder {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
 .header__searchbar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -301,33 +355,57 @@ ul {
   width: 100%;
   height: 50px;
   visibility: visible;
-  -webkit-transition: width 0.4s;
-  transition: width 0.4s;
+  -webkit-transform: translateX(0%) scaleX(100%);
+          transform: translateX(0%) scaleX(100%);
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
 }
 
 @media screen and (max-width: 768px) {
   .header__searchbar {
+    visibility: visible;
     top: 70px;
-    width: calc(100% - 40px) !important;
-    -webkit-transition: visibility 0.1s;
-    transition: visibility 0.1s;
-    -webkit-transition-delay: 0.2s;
-            transition-delay: 0.2s;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding: 0px 20px 0px 20px;
+    -webkit-transform: scaleY(100%);
+            transform: scaleY(100%);
+    -webkit-transition: -webkit-transform 0.2s;
+    transition: -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
   }
 }
 
-.header__searchbar_inactive {
-  width: 0%;
-  visibility: hidden;
+.header__searchbar img {
+  opacity: 1;
 }
 
-@media screen and (max-width: 768px) {
+.header__searchbar_inactive {
+  visibility: hidden;
+  -webkit-transform: scaleY(0%);
+          transform: scaleY(0%);
+  -webkit-transition: visibility 0.2s linear, -webkit-transform 0.2s;
+  transition: visibility 0.2s linear, -webkit-transform 0.2s;
+  transition: visibility 0.2s linear, transform 0.2s;
+  transition: visibility 0.2s linear, transform 0.2s, -webkit-transform 0.2s;
+}
+
+.header__searchbar_inactive img {
+  opacity: 0;
+}
+
+@media screen and (min-width: 768px) {
   .header__searchbar_inactive {
-    -webkit-transition: visibility 0s;
-    transition: visibility 0s;
-    -webkit-transition-delay: 0s;
-            transition-delay: 0s;
+    visibility: hidden;
+    -webkit-transform: translateX(50%) scaleX(0%);
+            transform: translateX(50%) scaleX(0%);
+    -webkit-transition: visibility 0.4s linear, -webkit-transform 0.4s;
+    transition: visibility 0.4s linear, -webkit-transform 0.4s;
+    transition: visibility 0.4s linear, transform 0.4s;
+    transition: visibility 0.4s linear, transform 0.4s, -webkit-transform 0.4s;
   }
 }
 
@@ -1073,7 +1151,7 @@ ul {
 }
 
 .about-for-products__features-item::before {
-  content: url("../svg/check.svg");
+  content: url("svg/check.svg");
   margin-top: 4px;
   position: absolute;
   left: -30px;

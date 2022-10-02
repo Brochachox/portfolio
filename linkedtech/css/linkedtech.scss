@@ -204,10 +204,16 @@ ul {
         position: relative;
         flex: 1 0 0;
         margin: 0px 30px;
+        visibility: hidden;
         @media screen and (max-width: 768px) {
             position: unset;
             flex: 0 1 0;
             margin: 0;
+        }
+        &_active {
+            opacity: 1;
+            visibility: visible;
+            transition-delay: 0.4s;
         }
     }
     &__search-box {
@@ -224,6 +230,16 @@ ul {
         font-weight: 500;
         border: 0;
         border-bottom: 1px solid black;
+        &::placeholder {
+            opacity: 0;
+        }
+        &_active {
+            &::placeholder {
+                opacity: 1;
+                transition: opacity 0.3s linear;
+                transition-delay: 0.4s;
+            }
+        }
     }
     &__searchbar {
         display: flex;
@@ -235,20 +251,31 @@ ul {
         width: 100%;
         height: 50px;
         visibility: visible;
-        transition: width 0.4s;
+        transform: translateX(0%) scaleX(100%);
+        transition: transform 0.4s;
+
         @media screen and (max-width: 768px) {
+            visibility: visible;
             top: 70px;
-            width: calc(100% - 40px) !important;
-            transition: visibility 0.1s;
-            transition-delay: 0.2s;
+            box-sizing: border-box;
             padding: 0px 20px 0px 20px;
+            transform: scaleY(100%);
+            transition: transform 0.2s;
+        }
+        & img {
+            opacity: 1;
         }
         &_inactive {
-            width: 0%;
+            & img {
+                opacity: 0;
+            }
             visibility: hidden;
-            @media screen and (max-width: 768px) {
-                transition: visibility 0s;
-                transition-delay: 0s;
+            transform: scaleY(0%);
+            transition: visibility 0.2s linear, transform 0.2s;
+            @media screen and (min-width: 768px) {
+                visibility: hidden;
+                transform: translateX(50%) scaleX(0%);
+                transition: visibility 0.4s linear, transform 0.4s;
             }
         }
     }
@@ -769,7 +796,7 @@ ul {
         color: #030d15;
         position: relative;
         &::before {
-            content: url("../svg/check.svg");
+            content: url("svg/check.svg");
             margin-top: 4px;
             position: absolute;
             left: -30px;
